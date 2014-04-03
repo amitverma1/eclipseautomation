@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="F:/Selenium/Jars/selenium-server-standalone-2.41.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saurabh.jain1/Desktop/JARs/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/saurabh.jain1/Desktop/JARs/selenium-server-standalone-2.39.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
