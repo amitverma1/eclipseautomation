@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.server.handler.FindElement;
+import org.testng.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,6 +22,7 @@ public class CreateNCRPage {
 	public void loginWithBlankCredentials()
 	{
 		driver.findElement(By.className("primarySubmitButton")).click();
+		Assert.assertEquals("The entered Username-password combination is incorrect.", driver.findElement(By.xpath("//div[@class='message error']/p")).getText());
 	}
 
 }
