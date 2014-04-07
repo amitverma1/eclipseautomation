@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="5" total="5" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10619" started-at="2014-04-03T10:44:50Z" finished-at="2014-04-03T10:45:01Z">
+  <suite name="Default suite" duration-ms="7337" started-at="2014-04-07T09:55:56Z" finished-at="2014-04-07T09:56:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10619" started-at="2014-04-03T10:44:50Z" finished-at="2014-04-03T10:45:01Z">
+    <test name="Default test" duration-ms="7337" started-at="2014-04-07T09:55:56Z" finished-at="2014-04-07T09:56:04Z">
       <class name="testCases.LoginTC">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.LoginTC@3b1aed57]" name="beforeclass" is-config="true" duration-ms="7604" started-at="2014-04-03T16:14:50Z" finished-at="2014-04-03T16:14:58Z">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.LoginTC@2723a510]" name="beforeclass" is-config="true" duration-ms="6195" started-at="2014-04-07T15:25:56Z" finished-at="2014-04-07T15:26:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="FAIL" signature="loginWithBlankCredentials()[pri:0, instance:testCases.LoginTC@3b1aed57]" name="loginWithBlankCredentials" duration-ms="502" started-at="2014-04-03T16:14:58Z" finished-at="2014-04-03T16:14:58Z">
+        <test-method status="FAIL" signature="loginWithBlankCredentials()[pri:0, instance:testCases.LoginTC@2723a510]" name="loginWithBlankCredentials" duration-ms="433" started-at="2014-04-07T15:26:02Z" finished-at="2014-04-07T15:26:03Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
@@ -46,7 +46,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithBlankCredentials -->
-        <test-method status="FAIL" signature="loginWithBlankUsername()[pri:0, instance:testCases.LoginTC@3b1aed57]" name="loginWithBlankUsername" duration-ms="387" started-at="2014-04-03T16:14:58Z" finished-at="2014-04-03T16:14:58Z">
+        <test-method status="FAIL" signature="loginWithBlankUsername()[pri:0, instance:testCases.LoginTC@2723a510]" name="loginWithBlankUsername" duration-ms="277" started-at="2014-04-07T15:26:03Z" finished-at="2014-04-07T15:26:03Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
@@ -81,11 +81,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithBlankUsername -->
-        <test-method status="FAIL" signature="loginWithBlankPassowrd()[pri:0, instance:testCases.LoginTC@3b1aed57]" name="loginWithBlankPassowrd" duration-ms="178" started-at="2014-04-03T16:14:58Z" finished-at="2014-04-03T16:14:59Z">
+        <test-method status="FAIL" signature="loginWithBlankPassowrd()[pri:0, instance:testCases.LoginTC@2723a510]" name="loginWithBlankPassowrd" duration-ms="244" started-at="2014-04-07T15:26:03Z" finished-at="2014-04-07T15:26:03Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-	at testCases.LoginTC.loginWithBlankPassowrd(LoginTC.java:49)
+	at testCases.LoginTC.loginWithBlankPassowrd(LoginTC.java:48)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -116,11 +116,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithBlankPassowrd -->
-        <test-method status="FAIL" signature="loginWithWrongCredentials()[pri:0, instance:testCases.LoginTC@3b1aed57]" name="loginWithWrongCredentials" duration-ms="1818" started-at="2014-04-03T16:14:59Z" finished-at="2014-04-03T16:15:00Z">
+        <test-method status="FAIL" signature="loginWithWrongCredentials()[pri:0, instance:testCases.LoginTC@2723a510]" name="loginWithWrongCredentials" duration-ms="86" started-at="2014-04-07T15:26:03Z" finished-at="2014-04-07T15:26:03Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-	at testCases.LoginTC.loginWithWrongCredentials(LoginTC.java:62)
+	at testCases.LoginTC.loginWithWrongCredentials(LoginTC.java:60)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -151,11 +151,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithWrongCredentials -->
-        <test-method status="FAIL" signature="loginWithCorrectCredentials()[pri:0, instance:testCases.LoginTC@3b1aed57]" name="loginWithCorrectCredentials" duration-ms="110" started-at="2014-04-03T16:15:00Z" finished-at="2014-04-03T16:15:01Z">
+        <test-method status="FAIL" signature="loginWithCorrectCredentials()[pri:0, instance:testCases.LoginTC@2723a510]" name="loginWithCorrectCredentials" duration-ms="84" started-at="2014-04-07T15:26:03Z" finished-at="2014-04-07T15:26:04Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-	at testCases.LoginTC.loginWithCorrectCredentials(LoginTC.java:76)
+	at testCases.LoginTC.loginWithCorrectCredentials(LoginTC.java:72)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)

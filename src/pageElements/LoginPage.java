@@ -35,4 +35,11 @@ public class LoginPage {
 	public void signIn() {
 		signIn_button.click();
 	}
+	
+	public String getErrorMsg(){
+		
+		String errMsg = error_msg.getText();
+		return errMsg;
+		
+	}
 }
