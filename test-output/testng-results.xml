@@ -1,33 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="21176" started-at="2014-04-08T06:42:11Z" finished-at="2014-04-08T06:42:32Z">
+  <suite name="Default suite" duration-ms="28858" started-at="2014-04-08T13:20:49Z" finished-at="2014-04-08T13:21:18Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="21176" started-at="2014-04-08T06:42:11Z" finished-at="2014-04-08T06:42:32Z">
+    <test name="Default test" duration-ms="28858" started-at="2014-04-08T13:20:49Z" finished-at="2014-04-08T13:21:18Z">
       <class name="testCases.LoginTC">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.LoginTC@25844fbe]" name="beforeclass" is-config="true" duration-ms="10703" started-at="2014-04-08T12:12:11Z" finished-at="2014-04-08T12:12:22Z">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.LoginTC@548ccbe7]" name="beforeclass" is-config="true" duration-ms="10721" started-at="2014-04-08T18:50:49Z" finished-at="2014-04-08T18:50:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="loginWithBlankCredentials()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithBlankCredentials" duration-ms="258" started-at="2014-04-08T12:12:22Z" finished-at="2014-04-08T12:12:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithBlankCredentials -->
-        <test-method status="PASS" signature="loginWithBlankUsername()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithBlankUsername" duration-ms="181" started-at="2014-04-08T12:12:22Z" finished-at="2014-04-08T12:12:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithBlankUsername -->
-        <test-method status="PASS" signature="loginWithBlankPassowrd()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithBlankPassowrd" duration-ms="935" started-at="2014-04-08T12:12:22Z" finished-at="2014-04-08T12:12:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithBlankPassowrd -->
-        <test-method status="PASS" signature="loginWithWrongCredentials()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithWrongCredentials" duration-ms="236" started-at="2014-04-08T12:12:23Z" finished-at="2014-04-08T12:12:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithWrongCredentials -->
-        <test-method status="PASS" signature="loginWithCorrectCredentials()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithCorrectCredentials" duration-ms="8838" started-at="2014-04-08T12:12:23Z" finished-at="2014-04-08T12:12:32Z">
+        <test-method status="PASS" signature="loginWithCorrectCredentials()[pri:0, instance:testCases.LoginTC@548ccbe7]" name="loginWithCorrectCredentials" duration-ms="18124" started-at="2014-04-08T18:50:59Z" finished-at="2014-04-08T18:51:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithCorrectCredentials -->

@@ -8,12 +8,13 @@ public class CreateNcrPage {
 	
 	public static WebDriver driver_create_ncr;
 	
-	public WebElement titleNCR_field;
-	public WebElement referenceNCR_field;
-	public WebElement descriptionNCR_field;
-	public WebElement revisionNCR_field;
-	public WebElement selectPT_Link;
-	public WebElement createNCR_button;
+	public WebElement createNewNcr;
+	public WebElement title;
+	public WebElement reference;
+	public WebElement description;
+	public WebElement revision;
+	public WebElement selectPT;
+	public WebElement create;
 	
 	public WebElement error_message_title;
 	public WebElement error_message_reference;
@@ -24,6 +25,7 @@ public class CreateNcrPage {
 	
 	public CreateNcrPage(){
 		
+		createNewNcr = driver_create_ncr.
 		titleNCR_field = driver_create_ncr.findElement(By.id("ncrDetailsForm_ncr_titlencrDetailsForm_ncr_title"));
 		referenceNCR_field = driver_create_ncr.findElement(By.id("ncrDetailsForm_ncr_reference"));
 		descriptionNCR_field = driver_create_ncr.findElement(By.id("ncrDescriptionOnDetailsPage"));
