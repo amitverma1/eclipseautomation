@@ -74,5 +74,6 @@ public class LoginTC {
 		log_obj.signIn();
 		Assert.assertEquals("Jerome Bertrand", LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']")).getText());
 	}
+	
 
 }
