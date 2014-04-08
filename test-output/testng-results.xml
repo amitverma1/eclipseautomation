@@ -2,39 +2,35 @@
 <testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="20754" started-at="2014-04-08T06:25:28Z" finished-at="2014-04-08T06:25:48Z">
+  <suite name="Default suite" duration-ms="21176" started-at="2014-04-08T06:42:11Z" finished-at="2014-04-08T06:42:32Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="20754" started-at="2014-04-08T06:25:28Z" finished-at="2014-04-08T06:25:48Z">
+    <test name="Default test" duration-ms="21176" started-at="2014-04-08T06:42:11Z" finished-at="2014-04-08T06:42:32Z">
       <class name="testCases.LoginTC">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.LoginTC@59fd01f7]" name="beforeclass" is-config="true" duration-ms="10524" started-at="2014-04-08T11:55:28Z" finished-at="2014-04-08T11:55:38Z">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.LoginTC@25844fbe]" name="beforeclass" is-config="true" duration-ms="10703" started-at="2014-04-08T12:12:11Z" finished-at="2014-04-08T12:12:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="loginWithBlankCredentials()[pri:0, instance:testCases.LoginTC@59fd01f7]" name="loginWithBlankCredentials" duration-ms="355" started-at="2014-04-08T11:55:38Z" finished-at="2014-04-08T11:55:38Z">
+        <test-method status="PASS" signature="loginWithBlankCredentials()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithBlankCredentials" duration-ms="258" started-at="2014-04-08T12:12:22Z" finished-at="2014-04-08T12:12:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithBlankCredentials -->
-        <test-method status="PASS" signature="loginWithBlankUsername()[pri:0, instance:testCases.LoginTC@59fd01f7]" name="loginWithBlankUsername" duration-ms="197" started-at="2014-04-08T11:55:38Z" finished-at="2014-04-08T11:55:39Z">
+        <test-method status="PASS" signature="loginWithBlankUsername()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithBlankUsername" duration-ms="181" started-at="2014-04-08T12:12:22Z" finished-at="2014-04-08T12:12:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithBlankUsername -->
-        <test-method status="PASS" signature="loginWithBlankPassowrd()[pri:0, instance:testCases.LoginTC@59fd01f7]" name="loginWithBlankPassowrd" duration-ms="903" started-at="2014-04-08T11:55:39Z" finished-at="2014-04-08T11:55:39Z">
+        <test-method status="PASS" signature="loginWithBlankPassowrd()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithBlankPassowrd" duration-ms="935" started-at="2014-04-08T12:12:22Z" finished-at="2014-04-08T12:12:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithBlankPassowrd -->
-        <test-method status="PASS" signature="loginWithWrongCredentials()[pri:0, instance:testCases.LoginTC@59fd01f7]" name="loginWithWrongCredentials" duration-ms="253" started-at="2014-04-08T11:55:40Z" finished-at="2014-04-08T11:55:40Z">
+        <test-method status="PASS" signature="loginWithWrongCredentials()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithWrongCredentials" duration-ms="236" started-at="2014-04-08T12:12:23Z" finished-at="2014-04-08T12:12:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithWrongCredentials -->
-        <test-method status="PASS" signature="loginWithCorrectCredentials()[pri:0, instance:testCases.LoginTC@59fd01f7]" name="loginWithCorrectCredentials" duration-ms="8506" started-at="2014-04-08T11:55:40Z" finished-at="2014-04-08T11:55:48Z">
+        <test-method status="PASS" signature="loginWithCorrectCredentials()[pri:0, instance:testCases.LoginTC@25844fbe]" name="loginWithCorrectCredentials" duration-ms="8838" started-at="2014-04-08T12:12:23Z" finished-at="2014-04-08T12:12:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginWithCorrectCredentials -->
-        <test-method status="PASS" signature="afterclass()[pri:0, instance:testCases.LoginTC@59fd01f7]" name="afterclass" is-config="true" duration-ms="5" started-at="2014-04-08T11:55:48Z" finished-at="2014-04-08T11:55:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterclass -->
       </class> <!-- testCases.LoginTC -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
