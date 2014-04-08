@@ -23,7 +23,6 @@ public class LoginTC {
 	@Test(priority = 1, alwaysRun = true)
 	public void loginWithBlankCredentials()
 	{
-		//LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
 		log_obj.signIn();
 		Assert.assertEquals("The entered Username-password combination is incorrect.", log_obj.getErrorMsg());
 	}
@@ -32,8 +31,6 @@ public class LoginTC {
 	public void loginWithBlankUsername()
 	{
 		
-		//LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
-		//LoginPage.driver_login.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		log_obj.enter_pswrd("hell0");
 		log_obj.signIn();
 		Assert.assertEquals("The entered Username-password combination is incorrect.", log_obj.getErrorMsg());
@@ -43,8 +40,6 @@ public class LoginTC {
 	public void loginWithBlankPassowrd()
 	{
 		
-		//LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
-		//LoginPage.driver_login.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		log_obj.enter_pswrd("");
 		log_obj.enter_usernm("jbertran");
 		log_obj.signIn();
@@ -55,8 +50,6 @@ public class LoginTC {
 	public void loginWithWrongCredentials()
 	{
 		
-		//LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
-		//LoginPage.driver_login.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		log_obj.enter_usernm("xyz");
 		log_obj.enter_pswrd("abc01");
 		log_obj.signIn();
@@ -66,9 +59,6 @@ public class LoginTC {
 	@Test(priority = 5, alwaysRun = true)
 	public void loginWithCorrectCredentials()
 	{
-		
-		//LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
-		//LoginPage.driver_login.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		log_obj.enter_usernm("jbertran");
 		log_obj.enter_pswrd("hell0");
 		log_obj.signIn();
