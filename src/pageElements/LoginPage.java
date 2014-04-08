@@ -14,25 +14,21 @@ public class LoginPage {
 	public WebElement signIn_button;
 	public WebElement error_msg;
 	
-	public LoginPage()	{
-		
-		usrnm_field = driver_login.findElement(By.className("usernameField"));
-		pswrd_field = driver_login.findElement(By.className("pswrdField"));
-		signIn_button = driver_login.findElement(By.className("primarySubmitButton"));
-		
-	}
 	
 	public void enter_usernm(String uname) {
+		usrnm_field = driver_login.findElement(By.className("usernameField"));
 		usrnm_field.clear();
 		usrnm_field.sendKeys(uname);
 	}
 	
 	public void enter_pswrd(String Pwrd) {
+		pswrd_field = driver_login.findElement(By.className("pswrdField"));
 		pswrd_field.clear();
 		pswrd_field.sendKeys(Pwrd);
 	}
 	
 	public void signIn() {
+		signIn_button = driver_login.findElement(By.className("primarySubmitButton"));
 		signIn_button.click();
 	}
 	

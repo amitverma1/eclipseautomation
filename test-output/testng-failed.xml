@@ -5,11 +5,8 @@
     <classes>
       <class name="testCases.LoginTC">
         <methods>
-          <include name="loginWithBlankPassowrd"/>
           <include name="beforeclass"/>
-          <include name="loginWithWrongCredentials"/>
           <include name="loginWithCorrectCredentials"/>
-          <include name="loginWithBlankUsername"/>
         </methods>
       </class> <!-- testCases.LoginTC -->
     </classes>

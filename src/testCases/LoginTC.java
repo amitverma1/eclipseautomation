@@ -47,7 +47,7 @@ public class LoginTC {
 		
 		//LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
 		//LoginPage.driver_login.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		log_obj.pswrd_field.clear();
+		log_obj.enter_pswrd("");
 		log_obj.enter_usernm("jbertran");
 		log_obj.signIn();
 		Assert.assertEquals("The entered Username-password combination is incorrect.", log_obj.getErrorMsg());
@@ -71,11 +71,9 @@ public class LoginTC {
 		
 		//LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
 		//LoginPage.driver_login.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		log_obj.usrnm_field.clear();
-		log_obj.usrnm_field.sendKeys("jbertran");
-		log_obj.pswrd_field.clear();
-		log_obj.pswrd_field.sendKeys("hell0");
-		log_obj.signIn_button.click();
+		log_obj.enter_usernm("jbertran");
+		log_obj.enter_pswrd("hell0");
+		log_obj.signIn();
 		Assert.assertEquals("Jerome Bertrand", LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']")).getText());
 	}
 
