@@ -19,7 +19,7 @@ public class LoginPage {
 		usrnm_field = driver_login.findElement(By.className("usernameField"));
 		pswrd_field = driver_login.findElement(By.className("pswrdField"));
 		signIn_button = driver_login.findElement(By.className("primarySubmitButton"));
-		error_msg = driver_login.findElement(By.xpath("//div[@class='message error']/p"));
+		
 	}
 	
 	public void enter_usernm(String uname) {
@@ -38,6 +38,7 @@ public class LoginPage {
 	
 	public String getErrorMsg(){
 		
+		error_msg = driver_login.findElement(By.xpath("//div[@class='message error']/p"));
 		String errMsg = error_msg.getText();
 		return errMsg;
 		

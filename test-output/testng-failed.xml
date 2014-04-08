@@ -10,7 +10,6 @@
           <include name="loginWithWrongCredentials"/>
           <include name="loginWithCorrectCredentials"/>
           <include name="loginWithBlankUsername"/>
-          <include name="loginWithBlankCredentials"/>
         </methods>
       </class> <!-- testCases.LoginTC -->
     </classes>
