@@ -2,19 +2,15 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28858" started-at="2014-04-08T13:20:49Z" finished-at="2014-04-08T13:21:18Z">
+  <suite name="Default suite" duration-ms="20" started-at="2014-04-09T08:24:44Z" finished-at="2014-04-09T08:24:44Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28858" started-at="2014-04-08T13:20:49Z" finished-at="2014-04-08T13:21:18Z">
+    <test name="Default test" duration-ms="20" started-at="2014-04-09T08:24:44Z" finished-at="2014-04-09T08:24:44Z">
       <class name="testCases.LoginTC">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.LoginTC@548ccbe7]" name="beforeclass" is-config="true" duration-ms="10721" started-at="2014-04-08T18:50:49Z" finished-at="2014-04-08T18:50:59Z">
+        <test-method status="PASS" signature="randnumber()[pri:0, instance:testCases.LoginTC@4a13fc0f]" name="randnumber" duration-ms="9" started-at="2014-04-09T13:54:44Z" finished-at="2014-04-09T13:54:44Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="loginWithCorrectCredentials()[pri:0, instance:testCases.LoginTC@548ccbe7]" name="loginWithCorrectCredentials" duration-ms="18124" started-at="2014-04-08T18:50:59Z" finished-at="2014-04-08T18:51:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithCorrectCredentials -->
+        </test-method> <!-- randnumber -->
       </class> <!-- testCases.LoginTC -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

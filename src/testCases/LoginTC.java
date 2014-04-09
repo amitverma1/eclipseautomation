@@ -64,7 +64,16 @@ public class LoginTC {
 		log_obj.enter_pswrd("hell0");
 		log_obj.signIn();
 		Assert.assertEquals("Jerome Bertrand", LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']")).getText());
+		
 	}
+	
+	/*@Test
+	public void randnumber() {
+		
+		int randNum = (int) (Math.random() * 99999);
+		System.out.println(randNum);
+		
+	}*/
 	
 
 }
