@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testCases.LoginTC">
+      <class name="testCases.CreateNCR_TC">
         <methods>
+          <include name="create_ncr"/>
           <include name="beforeclass"/>
-          <include name="loginWithCorrectCredentials"/>
         </methods>
-      </class> <!-- testCases.LoginTC -->
+      </class> <!-- testCases.CreateNCR_TC -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

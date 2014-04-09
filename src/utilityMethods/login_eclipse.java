@@ -1,7 +1,6 @@
 package utilityMethods;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
@@ -9,13 +8,12 @@ import pageElements.LoginPage;
 
 public class login_eclipse {
 	
-	public WebDriver driver;
 	public LoginPage log_obj;
 	
 	public login_eclipse() {
 		
-		driver = new FirefoxDriver();
-		driver.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
+		LoginPage.driver_login = new FirefoxDriver();
+		LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
 		log_obj = new LoginPage();
 		
 	}
