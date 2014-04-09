@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="56823" started-at="2014-04-09T12:39:32Z" finished-at="2014-04-09T12:40:29Z">
+  <suite name="Default suite" duration-ms="58452" started-at="2014-04-09T13:11:25Z" finished-at="2014-04-09T13:12:24Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="56823" started-at="2014-04-09T12:39:32Z" finished-at="2014-04-09T12:40:29Z">
+    <test name="Default test" duration-ms="58452" started-at="2014-04-09T13:11:25Z" finished-at="2014-04-09T13:12:24Z">
       <class name="testCases.CreateNCR_TC">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.CreateNCR_TC@4fbc7b65]" name="beforeclass" is-config="true" duration-ms="37936" started-at="2014-04-09T18:09:32Z" finished-at="2014-04-09T18:10:10Z">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:testCases.CreateNCR_TC@4fbc7b65]" name="beforeclass" is-config="true" duration-ms="38462" started-at="2014-04-09T18:41:25Z" finished-at="2014-04-09T18:42:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="create_ncr()[pri:0, instance:testCases.CreateNCR_TC@4fbc7b65]" name="create_ncr" duration-ms="18876" started-at="2014-04-09T18:10:10Z" finished-at="2014-04-09T18:10:29Z">
+        <test-method status="PASS" signature="create_ncr()[pri:0, instance:testCases.CreateNCR_TC@4fbc7b65]" name="create_ncr" duration-ms="19979" started-at="2014-04-09T18:42:04Z" finished-at="2014-04-09T18:42:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- create_ncr -->
