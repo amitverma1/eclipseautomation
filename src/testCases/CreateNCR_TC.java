@@ -1,5 +1,6 @@
 package testCases;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -17,7 +18,7 @@ public class CreateNCR_TC {
 		
 		login_obj = new login_eclipse();
 		login_obj.login();
-		LoginPage.driver_login.get("http://ndi-pc-410:8080/encts/web/home?projectId=1");
+		LoginPage.driver_login.switchTo().frame(LoginPage.driver_login.findElement(By.id("iframe-encts")));
 		
 		createNCR_obj = new CreateNcrPage();
 	
