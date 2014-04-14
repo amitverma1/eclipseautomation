@@ -1,7 +1,14 @@
+
 package testCases;
 
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -9,14 +16,10 @@ import org.testng.annotations.Test;
 
 import pageElements.LoginPage;
 
-import com.thoughtworks.selenium.Selenium;
-
 public class LoginTC {
 
 	public LoginPage log_obj;
-	public Selenium selenium;
 	
-
 	@BeforeClass
 	public void beforeclass() {
 		LoginPage.driver_login = new FirefoxDriver();
@@ -29,7 +32,6 @@ public class LoginTC {
 	public void loginWithBlankCredentials()
 	{
 		log_obj.signIn();
-		selenium.captureEntirePageScreenshot("D:\\screen1.jpg", "");
 		Assert.assertEquals("The entered Username-password combination is incorrect.", log_obj.getErrorMsg());
 	}
 	
@@ -39,8 +41,21 @@ public class LoginTC {
 		
 		log_obj.enter_pswrd("hell0");
 		log_obj.signIn();
+		try {
+			
 		
-		Assert.assertEquals("The entered Username-password combination is incorrect.", log_obj.getErrorMsg());
+		Assert.assertEquals("The entered Username-password combination is incorrec.", log_obj.getErrorMsg());
+		
+		}
+		catch (Exception e){
+			File scrFile = ((TakesScreenshot)LoginPage.driver_login).getScreenshotAs(OutputType.FILE);
+		      try {
+				FileUtils.copyFile(scrFile, new File(".//screenshot/screenshot.png"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	@Test(priority = 3, alwaysRun = true)
@@ -72,7 +87,14 @@ public class LoginTC {
 		Assert.assertEquals("Jerome Bertrand", LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']")).getText());
 		
 	}
-
+	
+	/*@Test
+	public void randnumber() {
+		
+		int randNum = (int) (Math.random() * 99999);
+		System.out.println(randNum);
+		
+	}*/
 	
 
 }
