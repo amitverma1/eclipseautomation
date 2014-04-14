@@ -1,6 +1,8 @@
 package pageElements;
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -66,6 +68,7 @@ public class CreateNcrPage {
 		selectPT = LoginPage.driver_login.findElement(By.xpath("//td[@id='selectedPtItemList']/a"));
 		selectPT.click();
 		
+	//	LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
@@ -74,7 +77,6 @@ public class CreateNcrPage {
 		}
 		
 		Actions multiplePTItems = new Actions(LoginPage.driver_login);
-		
 		
 		for (String text : PT_Item_texts){
 			WebElement PT_item = LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'" + text + "')]"));

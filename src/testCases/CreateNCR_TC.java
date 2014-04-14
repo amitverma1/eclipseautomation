@@ -6,17 +6,17 @@ import org.testng.annotations.Test;
 
 import pageElements.CreateNcrPage;
 import pageElements.LoginPage;
-import utilityMethods.login_eclipse;
+import utilityMethods.Login_Eclipse;
 
 public class CreateNCR_TC {
 	
 	public CreateNcrPage createNCR_obj;
-	public login_eclipse login_obj;
+	public Login_Eclipse login_obj;
 	
 	@BeforeClass
 	public void beforeclass() {
 		
-		login_obj = new login_eclipse();
+		login_obj = new Login_Eclipse();
 		login_obj.login();
 		LoginPage.driver_login.switchTo().frame(LoginPage.driver_login.findElement(By.id("iframe-encts")));
 		
