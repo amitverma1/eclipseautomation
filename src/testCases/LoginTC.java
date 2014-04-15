@@ -88,13 +88,6 @@ public class LoginTC {
 		
 	}
 	
-	/*@Test
-	public void randnumber() {
-		
-		int randNum = (int) (Math.random() * 99999);
-		System.out.println(randNum);
-		
-	}*/
 	
 
 }

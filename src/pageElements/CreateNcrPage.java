@@ -1,6 +1,8 @@
 package pageElements;
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -71,13 +73,7 @@ public class CreateNcrPage {
 		selectPT = LoginPage.driver_login.findElement(By.xpath("//td[@id='selectedPtItemList']/a"));
 		selectPT.click();
 		
-	//	LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
 		
 		Actions multiplePTItems = new Actions(LoginPage.driver_login);
 		
@@ -94,7 +90,7 @@ public class CreateNcrPage {
 	}
 	
 	public void enter_newTextArea(String newTextAreaNCR){
-		newTextArea = LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_metadata_metadata_1383"));
+		newTextArea = LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_metadata_metadata_1385"));
 		newTextArea.clear();
 		newTextArea.sendKeys(newTextAreaNCR);
 	}
@@ -136,7 +132,7 @@ public class CreateNcrPage {
 	}
 	
 	public String get_error_message_newTextArea() {
-		String err_newTextArea = LoginPage.driver_login.findElement(By.xpath("//div[@id='wwerr_ncrDetailsForm_ncr_metadata_metadata_1383']/div")).getText();
+		String err_newTextArea = LoginPage.driver_login.findElement(By.xpath("//div[@id='wwerr_ncrDetailsForm_ncr_metadata_metadata_1385']/div")).getText();
 		return err_newTextArea;
 		
 	}
