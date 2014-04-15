@@ -81,10 +81,10 @@ public class LoginTC {
 	@Test(priority = 5, alwaysRun = true)
 	public void loginWithCorrectCredentials()
 	{
-		log_obj.enter_usernm("jbertran");
+		log_obj.enter_usernm("selenium");
 		log_obj.enter_pswrd("hell0");
 		log_obj.signIn();
-		Assert.assertEquals("Jerome Bertrand", LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']")).getText());
+		Assert.assertEquals("Auto Eclipse", LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']")).getText());
 		
 	}
 	

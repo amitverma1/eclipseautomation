@@ -36,10 +36,12 @@ public class WelcomeFrame {
 	
 // Switching Project to another project through ID //
 	public void switch_project(){
+		LoginPage.driver_login.switchTo().defaultContent();
 		project_dropdown = LoginPage.driver_login.findElement(By.xpath("//[@id='paramSwitcherId']"));
 	
 		Select select = new Select(project_dropdown);
 		select.selectByValue("1020");
+		LoginPage.driver_login.switchTo().frame(LoginPage.driver_login.findElement(By.id("iframe-encts")));
 	
 	}
 	

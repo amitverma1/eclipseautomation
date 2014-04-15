@@ -11,6 +11,7 @@ public class CreateNcrPage {
 	
 	public WebElement NCRMenu;
 	public WebElement createNewNcr;
+	public WebElement pageTitle;
 	public WebElement title;
 	public WebElement reference;
 	public WebElement description;
@@ -36,6 +37,10 @@ public class CreateNcrPage {
 		createNewNcr.click();
 	}
 	
+	public String get_pageTitle() {
+		String pageTitle = LoginPage.driver_login.findElement(By.xpath("//div[@id='newPageTitle']/h1")).getText();
+		return pageTitle;
+	}
 	
 	public void enter_title(String titleNCR){
 		title = LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_title"));
