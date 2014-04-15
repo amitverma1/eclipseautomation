@@ -32,6 +32,7 @@ public class CreateNCR_TC {
 	@Test(priority = 1, alwaysRun = true)
 	public void Create_NCR_withBlankFields() {
 		createNCR_obj.create_new_NCR();
+		LoginPage.driver_login.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Assert.assertEquals("Create NCR", createNCR_obj.get_pageTitle());
 		createNCR_obj.click_create();
 		Assert.assertEquals("Title is required", createNCR_obj.get_error_message_title());
@@ -96,6 +97,7 @@ public class CreateNCR_TC {
 		createNCR_obj.enter_revision("1.0");
 		createNCR_obj.enter_newTextArea("Testing testing testing...");
 		createNCR_obj.click_create();
+		LoginPage.driver_login.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Assert.assertEquals("Edit NCR", createNCR_obj.get_pageTitle());
 	}
 	

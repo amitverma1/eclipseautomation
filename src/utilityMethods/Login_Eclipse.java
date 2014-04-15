@@ -30,6 +30,7 @@ public class Login_Eclipse {
 		log_obj.signIn();
 		Assert.assertEquals("Auto Eclipse", LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']")).getText());
 		wframe_obj.switch_project();
+		wframe_obj.switch_encts();
 	}
 
 	public void logout() {
@@ -37,7 +38,5 @@ public class Login_Eclipse {
 		Assert.assertEquals("Please sign in. Enter your username and password.", LoginPage.driver_login.findElement(By.xpath("//div[@class='formContainer centreText']/p")).getText());
 	}
 
-
-	
 	
 }

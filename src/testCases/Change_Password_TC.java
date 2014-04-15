@@ -10,7 +10,7 @@ import pageElements.LoginPage;
 import pageElements.WelcomeFrame;
 import utilityMethods.Login_Eclipse;
 
-public class Change_Password {
+public class Change_Password_TC {
 	
 	WelcomeFrame frame_obj;
 	Login_Eclipse login_obj;
@@ -28,7 +28,10 @@ public class Change_Password {
 	
 	@Test(priority=1, alwaysRun=true)
 	public void saveWithoutPassword(){
+		
 		frame_obj.click_username_link();
+		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
+		Assert.assertEquals("Change Password", frame_obj.get_modalWindow_label());
 		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
 		frame_obj.click_save_password();
 		
@@ -40,7 +43,18 @@ public class Change_Password {
 		
 	}
 	
-	
+	@Test(priority=2, alwaysRun=true)
+	public void saveWithWrongCurrentPassword(){
+		frame_obj.set_current_password("hell1");
+		frame_obj.set_new_password("hell2");
+		frame_obj.set_confirm_password("hell2");
+		frame_obj.click_save_password();
+		
+	//=============Assertions ===========//
+		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
+		Assert.assertEquals(frame_obj.get_pwd_err(), "Old password value is incorrect. Please check capslock");
+		
+	}
 	
 	
 

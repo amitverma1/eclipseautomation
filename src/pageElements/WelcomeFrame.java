@@ -1,8 +1,10 @@
 package pageElements;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class WelcomeFrame {
 	
@@ -34,6 +36,13 @@ public class WelcomeFrame {
 	
 	
 	
+	public String get_modalWindow_label() {
+		change_password_modal_label = LoginPage.driver_login.findElement(By.className("legend"));
+		String label = change_password_modal_label.getText();
+		return label;
+	}
+	
+	
 // Switching Project to another project through ID //
 	public void switch_project(){
 		project_dropdown = LoginPage.driver_login.findElement(By.xpath("//select[@id='paramSwitcherId']"));
@@ -41,9 +50,6 @@ public class WelcomeFrame {
 		Select select = new Select(project_dropdown);
 		select.selectByValue("1020");
 		
-		encts_tab = LoginPage.driver_login.findElement(By.xpath("//li[@id='tab-encts']/a"));
-		encts_tab.click();
-	
 	}
 	
 	
@@ -65,22 +71,29 @@ public class WelcomeFrame {
 	
 	public void switch_encts(){
 		
-		encts_tab = LoginPage.driver_login.findElement(By.xpath("//[@href='#tabContent-encts']/span"));
+		encts_tab = LoginPage.driver_login.findElement(By.xpath("//li[@id='tab-encts']/a"));
 		encts_tab.click();
 		
 	}
 	
 	public void switch_aim(){
 		
-		aim_tab = LoginPage.driver_login.findElement(By.xpath("//[@href='#tabContent-aim']/span"));
+		aim_tab = LoginPage.driver_login.findElement(By.xpath("//li[@id='tab-aim']/a"));
 		aim_tab.click();
 		
 	}
 	
 	public void switch_pam(){
 		
-		pam_tab = LoginPage.driver_login.findElement(By.xpath("//[@href='#tabContent-pam']/span"));
+		pam_tab = LoginPage.driver_login.findElement(By.xpath("//li[@id='tab-pam']/a"));
 		pam_tab.click();
+		
+	}
+	
+	public void switch_jail(){
+		
+		jail_tab = LoginPage.driver_login.findElement(By.xpath("//li[@id='tab-jail']/a"));
+		jail_tab.click();
 		
 	}
 	
@@ -154,6 +167,17 @@ public class WelcomeFrame {
 		
 		return old_err;
 		
+	}
+	
+	public void accept_alert() {
+		try {
+			Alert alert = LoginPage.driver_login.switchTo().alert();
+			String AlertText = alert.getText();
+			alert.accept();
+			Assert.assertEquals("Password has been changed successfully.",AlertText);
+			} catch (Exception e) {
+			e.printStackTrace();
+			}
 	}
 	
 /*============================= Can be merged to "get_old_pwd_err" method =================== 
