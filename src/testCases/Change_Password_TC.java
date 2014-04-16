@@ -1,5 +1,6 @@
 package testCases;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import pageElements.LoginPage;
@@ -21,9 +23,10 @@ public class Change_Password_TC {
 	
 	
 	@BeforeClass
-	public void beforeClass(){
+	@Parameters({"browser"})
+	public void beforeClass(String browser) throws IOException{
 	
-		login_obj = new Login_Eclipse();
+		login_obj = new Login_Eclipse(browser);
 		login_obj.login();
 		
 		LoginPage.driver_login.switchTo().defaultContent();

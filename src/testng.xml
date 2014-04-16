@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Test Suite">
 
-<parameter name="browser" value="chrome" />
+<parameter name="browser" value="" />
 
 <test name="eNCTS">
     <classes>
