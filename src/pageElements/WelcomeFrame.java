@@ -3,7 +3,9 @@ package pageElements;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class WelcomeFrame {
@@ -101,10 +103,11 @@ public class WelcomeFrame {
 //  ============ Change Password Modal Window Methods ====== //
 	public void set_current_password(String current_password){
 		//LoginPage.driver_login.switchTo().activeElement();
+		WebDriverWait wait_err_msg = new WebDriverWait(LoginPage.driver_login, 20);
+		wait_err_msg.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='changePasswordForm_currentPassword']")));
 		current_password_modal = LoginPage.driver_login.findElement(By.xpath("//input[@id='changePasswordForm_currentPassword']"));
 		current_password_modal.clear();
 		current_password_modal.sendKeys(current_password);
-		
 	}
 	
 	
@@ -113,7 +116,6 @@ public class WelcomeFrame {
 		new_password_modal = LoginPage.driver_login.findElement(By.xpath("//input[@id='changePasswordForm_newPassword']"));
 		new_password_modal.clear();
 		new_password_modal.sendKeys(new_password);
-		
 	}
 	
     public void set_confirm_password(String new_password){
@@ -121,14 +123,12 @@ public class WelcomeFrame {
 		confirm_password_modal = LoginPage.driver_login.findElement(By.xpath("//input[@id='changePasswordForm_confirmPassword']"));
 		confirm_password_modal.clear();
 		confirm_password_modal.sendKeys(new_password);
-		
 	}
 	
     public void click_save_password(){
     	//LoginPage.driver_login.switchTo().activeElement();
-  		change_password_save_button = LoginPage.driver_login.findElement(By.xpath("//input[@id='updatePasswordBtn']"));
+    	change_password_save_button = LoginPage.driver_login.findElement(By.xpath("//input[@id='updatePasswordBtn']"));
   		change_password_save_button.click();
-  		
   	}
 	
 	public String get_cur_pwd_err(){
@@ -169,7 +169,7 @@ public class WelcomeFrame {
 		
 	}
 	
-	public void accept_alert() {
+	public void handle_accept_alert() {
 		try {
 			Alert alert = LoginPage.driver_login.switchTo().alert();
 			String AlertText = alert.getText();
