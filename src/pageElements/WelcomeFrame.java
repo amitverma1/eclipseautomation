@@ -19,7 +19,7 @@ public class WelcomeFrame {
 	
 	public WebElement jail_tab;		
 	public WebElement pam_tab;
-	public WebElement cal_tab;
+	//public WebElement cal_tab;
 	
 // ======================== Change Password Modal window Attributes=================Username Link====================  //
 	
@@ -34,7 +34,7 @@ public class WelcomeFrame {
 	public WebElement confirm_password_err;
 	public WebElement wrong_old_password_err;
 	public WebElement new_password_mismatch_err;
-	public WebElement policy_help_text;
+	//public WebElement policy_help_text;
 	
 	
 	
@@ -102,8 +102,9 @@ public class WelcomeFrame {
 
 //  ============ Change Password Modal Window Methods ====== //
 	public void set_current_password(String current_password){
-		//LoginPage.driver_login.switchTo().activeElement();
-		WebDriverWait wait_err_msg = new WebDriverWait(LoginPage.driver_login, 20);
+		LoginPage.driver_login.switchTo().activeElement();
+		// *** Implicit Wait is not working here. So, implementing explicit wait. ***
+		WebDriverWait wait_err_msg = new WebDriverWait(LoginPage.driver_login, 50);
 		wait_err_msg.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='changePasswordForm_currentPassword']")));
 		current_password_modal = LoginPage.driver_login.findElement(By.xpath("//input[@id='changePasswordForm_currentPassword']"));
 		current_password_modal.clear();
@@ -112,27 +113,27 @@ public class WelcomeFrame {
 	
 	
     public void set_new_password(String new_password){
-		
+    	LoginPage.driver_login.switchTo().activeElement();
 		new_password_modal = LoginPage.driver_login.findElement(By.xpath("//input[@id='changePasswordForm_newPassword']"));
 		new_password_modal.clear();
 		new_password_modal.sendKeys(new_password);
 	}
 	
     public void set_confirm_password(String new_password){
-		
+    	LoginPage.driver_login.switchTo().activeElement();
 		confirm_password_modal = LoginPage.driver_login.findElement(By.xpath("//input[@id='changePasswordForm_confirmPassword']"));
 		confirm_password_modal.clear();
 		confirm_password_modal.sendKeys(new_password);
 	}
 	
     public void click_save_password(){
-    	//LoginPage.driver_login.switchTo().activeElement();
+    	LoginPage.driver_login.switchTo().activeElement();
     	change_password_save_button = LoginPage.driver_login.findElement(By.xpath("//input[@id='updatePasswordBtn']"));
   		change_password_save_button.click();
   	}
 	
 	public String get_cur_pwd_err(){
-		//LoginPage.driver_login.switchTo().activeElement();
+		LoginPage.driver_login.switchTo().activeElement();
 		current_password_err = LoginPage.driver_login.findElement(By.xpath("//div[@id='wwerr_changePasswordForm_currentPassword']/div"));
 		String cur_err = current_password_err.getText();
 		
@@ -141,7 +142,7 @@ public class WelcomeFrame {
 	}
 	
 	public String get_new_pwd_err(){
-		//LoginPage.driver_login.switchTo().activeElement();
+		LoginPage.driver_login.switchTo().activeElement();
 		new_password_err = LoginPage.driver_login.findElement(By.xpath("//div[@id='wwerr_changePasswordForm_newPassword']/div"));
 		String new_err = new_password_err.getText();
 		
@@ -151,7 +152,7 @@ public class WelcomeFrame {
 		
 	
 	public String get_confirm_pwd_err(){
-		//LoginPage.driver_login.switchTo().activeElement();
+		LoginPage.driver_login.switchTo().activeElement();
 		confirm_password_err = LoginPage.driver_login.findElement(By.xpath("//div[@id='wwerr_changePasswordForm_confirmPassword']/div"));
 		String confirm_err = confirm_password_err.getText();
 		
@@ -161,7 +162,7 @@ public class WelcomeFrame {
 	
 
 	public String get_pwd_err(){
-		//LoginPage.driver_login.switchTo().activeElement();
+		LoginPage.driver_login.switchTo().activeElement();
 		wrong_old_password_err = LoginPage.driver_login.findElement(By.xpath("//ul[@id='changePasswordForm_null']/li/span"));
 		String old_err = wrong_old_password_err.getText();
 		
@@ -180,26 +181,17 @@ public class WelcomeFrame {
 			}
 	}
 	
-/*============================= Can be merged to "get_old_pwd_err" method =================== 
-	public String get_new_pwd_mismatch_err(){
-		
-		new_password_mismatch_err = LoginPage.driver_login.findElement(By.xpath("//ul[@id='changePasswordForm_null']/li/span"));
-		String new_mismatch_err = new_password_mismatch_err.getText();
-		
-		return new_mismatch_err;
-		
-	}*/
-		
 	
 	
-	public String get_policy_help_text(){
+	// Will be implemented later
+	/*public String get_policy_help_text(){
 		
 		policy_help_text = LoginPage.driver_login.findElement(By.xpath("//ul[@id='changePasswordForm_null']/li/span"));
 		String policy_help = policy_help_text.getText();
 		
 		return policy_help;
 		
-	}
+	}*/
 		
 
 }

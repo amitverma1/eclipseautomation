@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -99,6 +100,11 @@ public class CreateNCR_TC {
 		createNCR_obj.click_create();
 		LoginPage.driver_login.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Assert.assertEquals("Edit NCR", createNCR_obj.get_pageTitle());
+	}
+	
+	@AfterClass
+	public void afterclass() {
+		LoginPage.driver_login.quit();
 	}
 	
 

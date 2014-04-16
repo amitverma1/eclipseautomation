@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -82,7 +83,7 @@ public class Change_Password_TC {
 	//=============Assertions ===========//
 		// *** Implicit Wait is not working here. So, implementing explicit wait. ***
 		//LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
-		WebDriverWait wait_err_msg = new WebDriverWait(LoginPage.driver_login, 20);
+		WebDriverWait wait_err_msg = new WebDriverWait(LoginPage.driver_login, 60);
 		wait_err_msg.until(ExpectedConditions.visibilityOfElementLocated(By.id("wwerr_changePasswordForm_currentPassword")));
 		Assert.assertEquals(frame_obj.get_cur_pwd_err(), "Current Password is required");
 		Assert.assertEquals(frame_obj.get_new_pwd_err(), "New Password is required");
@@ -140,11 +141,14 @@ public class Change_Password_TC {
 		frame_obj.set_confirm_password("hell0");
 		frame_obj.click_save_password();
 		
-		
 	//=============Assertions ===========//
 		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
 		frame_obj.handle_accept_alert();
 	}
 	
+	@AfterClass
+	public void afterclass() {
+		LoginPage.driver_login.quit();
+	}
 
 }

@@ -2,15 +2,11 @@
 package testCases;
 
 
-import java.io.File;
-import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -41,21 +37,8 @@ public class LoginTC {
 		
 		log_obj.enter_pswrd("hell0");
 		log_obj.signIn();
-		try {
-			
+		Assert.assertEquals("The entered Username-password combination is incorrect.", log_obj.getErrorMsg());
 		
-		Assert.assertEquals("The entered Username-password combination is incorrec.", log_obj.getErrorMsg());
-		
-		}
-		catch (Exception e){
-			File scrFile = ((TakesScreenshot)LoginPage.driver_login).getScreenshotAs(OutputType.FILE);
-		      try {
-				FileUtils.copyFile(scrFile, new File(".//screenshot/screenshot.png"));
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 	}
 	
 	@Test(priority = 3, alwaysRun = true)
@@ -88,6 +71,9 @@ public class LoginTC {
 		
 	}
 	
-	
+	@AfterClass
+	public void afterclass() {
+		LoginPage.driver_login.quit();
+	}
 
 }

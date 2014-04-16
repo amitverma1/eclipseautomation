@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite">
+
+<parameter name="browser" value="chrome" />
+
+<test name="eNCTS">
+    <classes>
+        <class name="testCases.LoginTC" />
+        <class name="testCases.LogoutTC" />
+        <class name="testCases.Change_Password_TC" />
+        <class name="testCases.CreateNCR_TC" />
+    </classes>
+</test>
+
+</suite>
