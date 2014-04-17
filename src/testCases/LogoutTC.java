@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -21,17 +22,18 @@ public class LogoutTC {
 	
 	@BeforeClass
 	@Parameters({"browser"})
-	public void beforeClass(String browser) throws IOException{
+	public void beforeClass(@Optional("ie") String browser) throws IOException{
 	
 		login_obj = new Login_Eclipse(browser);
 		login_obj.login();
 		
-		LoginPage.driver_login.switchTo().defaultContent();
+		//LoginPage.driver_login.switchTo().defaultContent();
 		frame_obj = new WelcomeFrame();
 	}
 	
   @Test
-  public void logout() {
+  public void logout() throws InterruptedException {
+	Thread.sleep(5000);
 	  frame_obj.click_logout();
 	  
 	//=============Assertions ===========//

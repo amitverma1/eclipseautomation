@@ -56,6 +56,10 @@ public class WelcomeFrame {
 	
 	
 	public void click_username_link(){
+		LoginPage.driver_login.switchTo().activeElement();
+		// *** Implicit Wait is not working here. So, implementing explicit wait. ***
+		WebDriverWait wait_err_msg = new WebDriverWait(LoginPage.driver_login, 50);
+		wait_err_msg.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='changePasswordLink']")));
 		username_link = LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']"));
 		username_link.click();
 		
@@ -64,7 +68,7 @@ public class WelcomeFrame {
 	
 	public void click_logout(){
 		
-		logout = LoginPage.driver_login.findElement(By.linkText("Logout"));
+		logout = LoginPage.driver_login.findElement(By.xpath("//li[@id='logoutLink']/a[2]"));
 		logout.click();
 		
 	}
@@ -134,6 +138,8 @@ public class WelcomeFrame {
 	
 	public String get_cur_pwd_err(){
 		LoginPage.driver_login.switchTo().activeElement();
+		WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='wwerr_changePasswordForm_currentPassword']/div")));
 		current_password_err = LoginPage.driver_login.findElement(By.xpath("//div[@id='wwerr_changePasswordForm_currentPassword']/div"));
 		String cur_err = current_password_err.getText();
 		
@@ -171,7 +177,9 @@ public class WelcomeFrame {
 	}
 	
 	public void handle_accept_alert() {
+		WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 5);
 		try {
+			wait.until(ExpectedConditions.alertIsPresent());
 			Alert alert = LoginPage.driver_login.switchTo().alert();
 			String AlertText = alert.getText();
 			alert.accept();

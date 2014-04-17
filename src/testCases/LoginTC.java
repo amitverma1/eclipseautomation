@@ -14,6 +14,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -25,16 +26,16 @@ public class LoginTC {
 	
 	@BeforeClass
 	@Parameters({"browser"})
-	public void beforeClass(String browser) throws IOException{
+	public void beforeClass(@Optional("ie") String browser) throws IOException{
 		//LoginPage.driver_login = new FirefoxDriver();
 		
 		
 		if (browser.equalsIgnoreCase("ie")) {
 			// For IE
 			System.setProperty("webdriver.ie.driver", ".//src/drivers/IEDriverServer.exe");
-			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-			caps.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
-	        LoginPage.driver_login = new InternetExplorerDriver(caps);
+			DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer(); 
+			ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+	        LoginPage.driver_login = new InternetExplorerDriver(ieCapabilities);
 	        Runtime.getRuntime().exec("RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 2");
 	        LoginPage.driver_login.manage().deleteAllCookies();
 			}

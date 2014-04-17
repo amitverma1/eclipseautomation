@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -21,7 +24,7 @@ public class CreateNCR_TC {
 	
 	@BeforeClass
 	@Parameters({"browser"})
-	public void beforeClass(String browser) throws IOException{
+	public void beforeClass(@Optional("chrome") String browser) throws IOException{
 		
 		login_obj = new Login_Eclipse(browser);
 		login_obj.login();
@@ -34,9 +37,11 @@ public class CreateNCR_TC {
 	}
 	
 	@Test(priority = 1, alwaysRun = true)
-	public void Create_NCR_withBlankFields() {
+	public void Create_NCR_withBlankFields() throws InterruptedException {
 		createNCR_obj.create_new_NCR();
-		LoginPage.driver_login.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//LoginPage.driver_login.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Create NCR')]")));
 		Assert.assertEquals("Create NCR", createNCR_obj.get_pageTitle());
 		createNCR_obj.click_create();
 		Assert.assertEquals("Title is required", createNCR_obj.get_error_message_title());
@@ -80,7 +85,7 @@ public class CreateNCR_TC {
 	}
 	
 	@Test(priority = 4, alwaysRun = true)
-	public void Create_NCR_withRepeatedReference() {
+	public void Create_NCR_withRepeatedReference() throws InterruptedException {
 		createNCR_obj.create_new_NCR();
 		createNCR_obj.enter_title("Testing");
 		createNCR_obj.enter_reference("Test");

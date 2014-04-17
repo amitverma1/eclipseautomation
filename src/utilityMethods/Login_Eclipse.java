@@ -67,6 +67,16 @@ public class Login_Eclipse {
 		
 	}
 	
+	/*public Login_Eclipse() {
+		LoginPage.driver_login = new FirefoxDriver();
+		
+		LoginPage.driver_login.get("http://ndi-pc-410:8080/josso/signon/login.do?josso_back_to=/ilayout/i-layout");
+		LoginPage.driver_login.manage().window().maximize();
+		
+		log_obj = new LoginPage();
+		wframe_obj = new WelcomeFrame();
+	}*/
+	
 	public void login() {
 		
 		log_obj.enter_usernm("selenium");

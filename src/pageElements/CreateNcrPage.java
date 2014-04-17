@@ -8,6 +8,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateNcrPage {
 	
@@ -31,11 +33,16 @@ public class CreateNcrPage {
 	
 	
 	
-	public void create_new_NCR() {
-		
+	public void create_new_NCR() throws InterruptedException {
+		/*//WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
+		Thread.sleep(10000);
 		NCRMenu = LoginPage.driver_login.findElement(By.xpath("//ul[@class='sf-menu']/li[1]/a"));
 		createNewNcr = LoginPage.driver_login.findElement(By.xpath("//ul[@class='sf-menu']/li[1]/ul/li[4]/a"));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='sf-menu']/li[1]/a")));
 		NCRMenu.click();
+		Thread.sleep(3000);
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='sf-menu']/li[1]/ul/li[4]/a")));*/
+		createNewNcr = LoginPage.driver_login.findElement(By.className("create"));
 		createNewNcr.click();
 	}
 	
@@ -96,6 +103,8 @@ public class CreateNcrPage {
 	}
 	
 	public void click_create() {
+		WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ncrDetailsForm_form_button_create")));
 		create_button = LoginPage.driver_login.findElement(By.id("ncrDetailsForm_form_button_create"));
 		create_button.click();
 		
