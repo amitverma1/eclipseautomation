@@ -116,7 +116,7 @@ public class Change_Password_TC {
 		
 		
 	//=============Assertions ===========//
-		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
+		//LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
 		frame_obj.handle_accept_alert();
 	}
 	
@@ -132,7 +132,7 @@ public class Change_Password_TC {
 		
 		
 	//=============Assertions ===========//
-		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
+		//LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
 		frame_obj.handle_accept_alert();
 	}
 	
@@ -146,7 +146,7 @@ public class Change_Password_TC {
 		frame_obj.click_save_password();
 		
 	//=============Assertions ===========//
-		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
+		//LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
 		frame_obj.handle_accept_alert();
 	}
 	

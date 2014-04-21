@@ -177,7 +177,7 @@ public class WelcomeFrame {
 	}
 	
 	public void handle_accept_alert() {
-		WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 5);
+		WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
 		try {
 			wait.until(ExpectedConditions.alertIsPresent());
 			Alert alert = LoginPage.driver_login.switchTo().alert();
