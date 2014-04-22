@@ -31,6 +31,8 @@ public class CreateNcrPage {
 	public WebElement error_message_PTitems;
 	public WebElement error_message_newTextArea;
 	
+	WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
+	
 	
 	
 	public void create_new_NCR() throws InterruptedException {
@@ -42,6 +44,7 @@ public class CreateNcrPage {
 		NCRMenu.click();
 		Thread.sleep(3000);
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='sf-menu']/li[1]/ul/li[4]/a")));*/
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("create")));
 		createNewNcr = LoginPage.driver_login.findElement(By.className("create"));
 		createNewNcr.click();
 	}
@@ -103,7 +106,7 @@ public class CreateNcrPage {
 	}
 	
 	public void click_create() {
-		WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
+		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ncrDetailsForm_form_button_create")));
 		create_button = LoginPage.driver_login.findElement(By.id("ncrDetailsForm_form_button_create"));
 		create_button.click();

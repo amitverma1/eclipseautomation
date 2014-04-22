@@ -24,13 +24,14 @@ public class CreateNCR_TC {
 	
 	@BeforeClass
 	@Parameters({"browser"})
-	public void beforeClass(@Optional("chrome") String browser) throws IOException{
+	public void beforeClass(@Optional("firefox") String browser) throws IOException{
 		
 		login_obj = new Login_Eclipse(browser);
 		login_obj.login();
 		Assert.assertEquals("Auto Eclipse", LoginPage.driver_login.findElement(By.xpath("//a[@id='changePasswordLink']")).getText());
 		
 		LoginPage.driver_login.switchTo().frame(LoginPage.driver_login.findElement(By.id("iframe-encts")));
+		//System.out.println("Switched to iframe-encts");
 		
 		createNCR_obj = new CreateNcrPage();
 	
@@ -110,10 +111,6 @@ public class CreateNCR_TC {
 		Assert.assertEquals("Edit NCR", createNCR_obj.get_pageTitle());
 	}
 	
-	@AfterClass
-	public void afterclass() {
-		LoginPage.driver_login.quit();
-	}
 	
 
 }

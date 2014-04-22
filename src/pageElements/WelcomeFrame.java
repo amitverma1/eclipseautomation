@@ -36,6 +36,8 @@ public class WelcomeFrame {
 	public WebElement new_password_mismatch_err;
 	//public WebElement policy_help_text;
 	
+	WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 150);
+	
 	
 	
 	public String get_modalWindow_label() {
@@ -77,6 +79,7 @@ public class WelcomeFrame {
 	
 	public void switch_encts(){
 		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[@id='tab-encts']/a")));
 		encts_tab = LoginPage.driver_login.findElement(By.xpath("//li[@id='tab-encts']/a"));
 		encts_tab.click();
 		
