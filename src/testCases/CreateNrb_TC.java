@@ -1,9 +1,15 @@
 package testCases;
 
+import java.awt.List;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -27,7 +33,6 @@ public class CreateNrb_TC {
 		
 		login_obj = new Login_Eclipse(browser);
 		login_obj.login();
-		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("iframe-encts")));
 		LoginPage.driver_login.switchTo().frame(LoginPage.driver_login.findElement(By.id("iframe-encts")));
 		System.out.println("Switched to iframe-encts");
 		
@@ -44,7 +49,31 @@ public class CreateNrb_TC {
 		
 		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("create")));
 		LoginPage.driver_login.findElement(By.className("create")).click();
+		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ncrDetailsForm_ncr_title")));
+		LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_title")).sendKeys("Testing");
+		LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_reference")).sendKeys("test_ref_"+ (int) (Math.random() * 99999));
+		LoginPage.driver_login.findElement(By.id("ncrDescriptionOnDetailsPage")).sendKeys("Testing Create NCR");
+		LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_revision")).sendKeys("1.0");
+		LoginPage.driver_login.findElement(By.xpath("//td[@id='selectedPtItemList']/a")).click();
+		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
+		Actions multiplePTItems = new Actions(LoginPage.driver_login);
+		ArrayList<String> PT_Item_texts = new ArrayList<String>();
+		PT_Item_texts.add("Part-1");
+		PT_Item_texts.add("Part-2");
+		for (String text : PT_Item_texts){
+			WebElement PT_item = LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'" + text + "')]"));
+			multiplePTItems.keyDown(Keys.CONTROL)
+				.click(PT_item)
+				.keyUp(Keys.CONTROL);
+			Action selectMultiple = multiplePTItems.build();
+			selectMultiple.perform();
+		}
 		
+		LoginPage.driver_login.findElement(By.id("choose-pt-item-button")).click();
+		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ncrDetailsForm_ncr_metadata_metadata_1385")));
+		LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_metadata_metadata_1385")).sendKeys("Testing testing testing...");
+		LoginPage.driver_login.findElement(By.id("ncrDetailsForm_form_button_create")).click();
+		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='legend' and contains(text(),'NCR Details')]")));
 	}
 	
 	

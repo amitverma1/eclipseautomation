@@ -47,7 +47,12 @@ public class CreateNrb {
 	}
 	
 	public void select_init_class(String init_class) {
+		if (LoginPage.driver_login.findElement(By.id("nrbDetailsForm_nrb_initiatorType")).isDisplayed()){
 		nrb_init_class = LoginPage.driver_login.findElement(By.id("nrbDetailsForm_nrb_initiatorType"));
+		}
+		else {
+			nrb_init_class = LoginPage.driver_login.findElement(By.id("nrb_initiatorType"));
+		}
 		Select dropDown = new Select(nrb_init_class);
 		if(init_class.equalsIgnoreCase("major")) {
 			dropDown.selectByValue("2");
