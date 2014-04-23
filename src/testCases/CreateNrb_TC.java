@@ -1,5 +1,8 @@
 package testCases;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +30,7 @@ public class CreateNrb_TC {
 	
 	@BeforeClass
 	@Parameters({"browser"})
-	public void beforeClass(@Optional("ie") String browser) throws IOException, InterruptedException{
+	public void beforeClass(@Optional("firefox") String browser) throws IOException, InterruptedException{
 		
 		login_obj = new Login_Eclipse(browser);
 		login_obj.login();
@@ -43,7 +46,7 @@ public class CreateNrb_TC {
 	}
 	
 	@Test(priority = 1, alwaysRun = true)
-	public void create_new_ncr() throws InterruptedException {
+	public void create_new_ncr() throws InterruptedException, AWTException {
 		
 		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("create")));
 		LoginPage.driver_login.findElement(By.className("create")).click();
@@ -54,18 +57,26 @@ public class CreateNrb_TC {
 		LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_revision")).sendKeys("1.0");
 		LoginPage.driver_login.findElement(By.xpath("//td[@id='selectedPtItemList']/a")).click();
 		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
-		Actions multiplePTItems = new Actions(LoginPage.driver_login);
-		ArrayList<String> PT_Item_texts = new ArrayList<String>();
+		//Actions multiplePTItems = new Actions(LoginPage.driver_login);
+		/*ArrayList<String> PT_Item_texts = new ArrayList<String>();
 		PT_Item_texts.add("Part-1");
 		PT_Item_texts.add("Part-2");
 		for (String text : PT_Item_texts){
-			WebElement PT_item = LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'" + text + "')]"));
-			multiplePTItems.keyDown(Keys.CONTROL)
-				.click(PT_item)
+			WebElement PT_item = LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'" + text + "')]"));*/
+			/*multiplePTItems.keyDown(Keys.CONTROL)
+				.click(LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'Part-1')]")))
+				.click(LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'Part-2')]")))
 				.keyUp(Keys.CONTROL);
 			Action selectMultiple = multiplePTItems.build();
-			selectMultiple.perform();
-		}
+			selectMultiple.perform();*/
+		//}
+		
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'Part-1')]")).click();
+		Thread.sleep(500);
+		LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'Part-2')]")).click();
+		robot.keyRelease(KeyEvent.VK_CONTROL);
 		
 		LoginPage.driver_login.findElement(By.id("choose-pt-item-button")).click();
 		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ncrDetailsForm_ncr_metadata_metadata_1385")));
