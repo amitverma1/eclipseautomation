@@ -29,7 +29,7 @@ public class CreateNrb_TC {
 	
 	@BeforeClass
 	@Parameters({"browser"})
-	public void beforeClass(@Optional("firefox") String browser) throws IOException, InterruptedException{
+	public void beforeClass(@Optional("ie") String browser) throws IOException, InterruptedException{
 		
 		login_obj = new Login_Eclipse(browser);
 		login_obj.login();
@@ -86,7 +86,7 @@ public class CreateNrb_TC {
 	}
 	
 	@Test(priority = 2, alwaysRun = true)
-	public void createNRB_withBlankFields() {
+	public void createNRB_withBlankFields() throws InterruptedException {
 		nrb_obj.click_create_nrb();
 		Assert.assertEquals("Internal NRB Details", nrb_obj.nrb_label.getText());
 		nrb_obj.enter_desc("");
@@ -134,25 +134,33 @@ public class CreateNrb_TC {
 	}
 	
 	@Test(priority = 6, alwaysRun = true)
-	public void createNRB_MajorInternal() {
+	public void createNRB_MajorInternal() throws InterruptedException {
+		nrb_obj.click_create_nrb();
 		Assert.assertEquals("Internal NRB Details", nrb_obj.nrb_label.getText());
 		nrb_obj.enter_desc("Major Internal");
 		nrb_obj.enter_date("25-04-2014");
 		nrb_obj.select_init_class("Major");
 		nrb_obj.click_create();
 		
+		LoginPage.driver_login.switchTo().activeElement();
 		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='ncb-details-fieldset']/div[@class='legend']")));
+		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='ncb-details-fieldset']/div[@class='legend']")));
+		nrb_obj.NRB_tab_label = LoginPage.driver_login.findElement(By.xpath("//div[@id='ncb-details-fieldset']/div[@class='legend']"));
 		Assert.assertEquals("List NRBs", nrb_obj.NRB_tab_label.getText());
 	}
 	
 	@Test(priority = 7, alwaysRun = true)
-	public void createNRB_CustomerNrb() {
+	public void createNRB_CustomerNrb() throws InterruptedException {
+		nrb_obj.click_create_nrb();
 		Assert.assertEquals("Customer NRB Details", nrb_obj.nrb_label.getText());
 		nrb_obj.enter_desc("Customer NRB");
 		nrb_obj.enter_date("25-04-2014");
 		nrb_obj.click_create();
 		
+		LoginPage.driver_login.switchTo().activeElement();
 		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='ncb-details-fieldset']/div[@class='legend']")));
+		nrb_obj.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='ncb-details-fieldset']/div[@class='legend']")));
+		nrb_obj.NRB_tab_label = LoginPage.driver_login.findElement(By.xpath("//div[@id='ncb-details-fieldset']/div[@class='legend']"));
 		Assert.assertEquals("List NRBs", nrb_obj.NRB_tab_label.getText());
 	}
 	
