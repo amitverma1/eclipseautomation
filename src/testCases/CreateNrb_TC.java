@@ -1,6 +1,5 @@
 package testCases;
 
-import java.awt.List;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -17,7 +16,6 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import pageElements.CreateNcrPage;
 import pageElements.CreateNrb;
 import pageElements.LoginPage;
 import utilityMethods.Login_Eclipse;
