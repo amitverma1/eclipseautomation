@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<project name="Ant-Test" default="Main" basedir=".">
+  <!-- Sets variables which can later be used. -->
+  <!-- The value of a property is accessed via ${} -->
+  <property name="src.dir" location="src" />
+  <property name="lib.dir" location="lib" />
+  <property name="build.dir" location="build" />
+	
+   
+	   
+
+  <!--
+    Create a classpath container which can be later used in the ant task
+  -->
+  <path id="build.classpath">
+     <pathelement location="build"/>
+  	 <pathelement location="lib/testng.jar"/>
+  	<fileset dir="${lib.dir}">
+  	      <include name="**/*.jar" />
+  	    </fileset>
+    <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+  	</fileset>
+  </path>
+
+  <!-- Deletes the existing build directory-->
+  <target name="clean">
+    <delete dir="build" />
+  </target>
+
+  <!-- Creates the  build  directory-->
+  <target name="makedir" depends="clean">
+    <mkdir dir="build" />
+  </target>
+
+  <!-- Compiles the java code -->
+  <target name="compile" depends="makedir">
+  	
+    <javac srcdir="${src.dir}" destdir="build" classpathref="build.classpath" />
+  </target>
+<!--	
+  <target name="jar" depends="compile">
+	<jar destfile="jar/${ant.project.name}.jar" basedir="build">
+	</jar>
+  </target>
+
+	<target name="run" depends="jar">
+	   <java jar="jar/${ant.project.name}.jar" fork="true"/>
+	</target> -->
+
+  
+	
+<!--    <target name="runTests" depends="compile">
+        <testng classpath="${build.classpath}:${build.dir}">
+            <xmlfileset dir="dist" includes="testng.xml"/>
+	 </testng>
+    <java classname = "First" classpath="${build}">
+    	</java>
+	 </target> -->
+	
+<!--	<target name="test" depends="compile">
+	  <echo message="running tests"/>
+	     <java fork="yes"
+	       classpathref="build.classpath"
+	           classname="org.testng.TestNG">
+	           <arg value="-d"/>
+	           <arg value="dist"/>
+	           <arg value="src/testng.xml"/>
+	           <jvmarg value="-ea"/>
+	        </java>
+	 </target> -->	
+	
+	
+	<target  name="run-task" depends="compile">
+	       <echo message="                                 -- testng-run using the testng task--"/>
+	       <taskdef classpathref="build.classpath" name="testng" classname="com.beust.testng.TestNGAntTask"/>
+	       <testng
+	                classpathref="build.classpath"
+	                outputdir="test-output">
+	          <xmlfileset dir="src" includes="testng.xml"/>
+	       </testng>
+	    </target>
+	
+	<target name="generateReport" depends="run-task">
+        <delete dir="${basedir}/testng-xslt">
+        </delete>
+        <mkdir dir="${basedir}/testng-xslt">
+        </mkdir>
+        <xslt in="${basedir}/test-output/testng-results.xml" style="${basedir}/testng-results.xsl" out="${basedir}/testng-xslt/index.html">
+            <param expression="${basedir}/testng-xslt/" name="testNgXslt.outputDir" />
+            <param expression="true" name="testNgXslt.sortTestCaseLinks" />
+            <param expression="FAIL,SKIP,PASS,CONF,BY_CLASS" name="testNgXslt.testDetailsFilter" />
+            <param expression="true" name="testNgXslt.showRuntimeTotals" />
+            <classpath refid="build.classpath">
+            </classpath>
+        </xslt>
+    </target>
+    
+    <target name="Sendmail" depends="generateReport">
+    <delete dir="${basedir}/zipReport">
+        </delete>
+        <mkdir dir="${basedir}/zipReport">
+        </mkdir>
+    <zip destfile="${basedir}/zipReport/report.zip"
+       basedir="${basedir}/testng-xslt"
+  />
+    
+    <mail enableStartTLS="true" ssl="true" mailhost="smtp.gmail.com" mailport="465" user="saurabhjain.test@gmail.com" password="saurabhjain123" subject="Testng Report">
+        <from address="saurabhjain.test@gmail.com"/>
+        <to address="saurabh.jain1@3pillarglobal.com"/>
+        <message>Test report has successfully been transferred via FTP.</message>
+        <attachments>
+    <fileset dir="${basedir}/zipReport">
+      <include name="report.zip"/>
+    </fileset>
+  </attachments>
+    </mail>
+    </target>
+    
+	
+	<target name="Main" depends="Sendmail">
+	    <description>Main target</description>
+	  </target>
+</project> 

@@ -17,6 +17,8 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+
+
 import pageElements.LoginPage;
 
 public class LoginTC {
@@ -25,7 +27,7 @@ public class LoginTC {
 	
 	@BeforeClass
 	@Parameters({"browser"})
-	public void beforeClass(@Optional("ie") String browser) throws IOException{
+	public void beforeClass(@Optional("firefox") String browser) throws IOException{
 		//LoginPage.driver_login = new FirefoxDriver();
 		
 		
@@ -67,10 +69,11 @@ public class LoginTC {
 	}
 	
 	@Test(priority = 1, alwaysRun = true)
-	public void loginWithBlankCredentials()
+	public void loginWithBlankCredentials() throws IOException
 	{
 		log_obj.signIn();
 		Assert.assertEquals("The entered Username-password combination is incorrect.", log_obj.getErrorMsg());
+		
 	}
 	
 	@Test(priority = 2, alwaysRun = true)
