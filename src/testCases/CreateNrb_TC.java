@@ -3,17 +3,21 @@ package testCases;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -57,20 +61,6 @@ public class CreateNrb_TC {
 		LoginPage.driver_login.findElement(By.id("ncrDetailsForm_ncr_revision")).sendKeys("1.0");
 		LoginPage.driver_login.findElement(By.xpath("//td[@id='selectedPtItemList']/a")).click();
 		LoginPage.driver_login.manage().timeouts().implicitlyWait(20L, TimeUnit.SECONDS);
-		//Actions multiplePTItems = new Actions(LoginPage.driver_login);
-		/*ArrayList<String> PT_Item_texts = new ArrayList<String>();
-		PT_Item_texts.add("Part-1");
-		PT_Item_texts.add("Part-2");
-		for (String text : PT_Item_texts){
-			WebElement PT_item = LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'" + text + "')]"));*/
-			/*multiplePTItems.keyDown(Keys.CONTROL)
-				.click(LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'Part-1')]")))
-				.click(LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'Part-2')]")))
-				.keyUp(Keys.CONTROL);
-			Action selectMultiple = multiplePTItems.build();
-			selectMultiple.perform();*/
-		//}
-		
 		Robot robot = new Robot();
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		LoginPage.driver_login.findElement(By.xpath("//div[@id='tree']//a[contains(text(),'Part-1')]")).click();
@@ -173,5 +163,34 @@ public class CreateNrb_TC {
 		Assert.assertEquals("List NRBs", nrb_obj.NRB_tab_label.getText());
 	}
 	
+	
+	@AfterMethod(alwaysRun=true)
+	public void catchExceptions(ITestResult result){
+	    Calendar calendar = Calendar.getInstance();
+	    SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+	    String methodName = result.getName();
+	    String className;
+	    Class<?> enclosingClass = getClass().getEnclosingClass();
+        if (enclosingClass != null) {
+        	className = enclosingClass.getName();
+        } else {
+        	className = getClass().getName();
+        }
+	    if(!result.isSuccess()){
+	        File scrFile = ((TakesScreenshot)LoginPage.driver_login).getScreenshotAs(OutputType.FILE);
+	        try {
+	            FileUtils.copyFile(scrFile, new File(".\\screenshot\\"+className+ "_" +methodName+"_"+formater.format(calendar.getTime())+".png"));
+	            
+	            System.out.println("Screenshot captured.");
+	        } catch (IOException e1) {
+	            e1.printStackTrace();
+	        }
+	    }
+	}
+	
+	@AfterClass
+	public void afterclass() {
+		LoginPage.driver_login.quit();
+	}
   
 }

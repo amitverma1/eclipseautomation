@@ -1,6 +1,5 @@
 package pageElements;
 
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -12,10 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CreateNcrPage {
+public class EditNcrPage {
 	
-	public WebElement NCRMenu;
-	public WebElement createNewNcr;
 	public WebElement pageTitle;
 	public WebElement title;
 	public WebElement reference;
@@ -23,33 +20,16 @@ public class CreateNcrPage {
 	public WebElement revision;
 	public WebElement selectPT;
 	public WebElement newTextArea;
-	public WebElement create_button;
 	public WebElement save_button;
 	
 	public WebElement error_message_title;
 	public WebElement error_message_reference;
 	public WebElement error_message_description;
 	public WebElement error_message_revision;
-	public WebElement error_message_PTitems;
 	public WebElement error_message_newTextArea;
 	
-	WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
+	public WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 100);
 	
-	
-	
-	public void create_new_NCR() throws InterruptedException {
-		/*//WebDriverWait wait = new WebDriverWait(LoginPage.driver_login, 60);
-		Thread.sleep(10000);
-		NCRMenu = LoginPage.driver_login.findElement(By.xpath("//ul[@class='sf-menu']/li[1]/a"));
-		createNewNcr = LoginPage.driver_login.findElement(By.xpath("//ul[@class='sf-menu']/li[1]/ul/li[4]/a"));
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='sf-menu']/li[1]/a")));
-		NCRMenu.click();
-		Thread.sleep(3000);
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='sf-menu']/li[1]/ul/li[4]/a")));*/
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("create")));
-		createNewNcr = LoginPage.driver_login.findElement(By.className("create"));
-		createNewNcr.click();
-	}
 	
 	public String get_pageTitle() {
 		String pageTitle = LoginPage.driver_login.findElement(By.xpath("//div[@id='newPageTitle']/h1")).getText();
@@ -100,13 +80,6 @@ public class CreateNcrPage {
 		newTextArea.sendKeys(newTextAreaNCR);
 	}
 	
-	public void click_create() {
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ncrDetailsForm_form_button_create")));
-		create_button = LoginPage.driver_login.findElement(By.id("ncrDetailsForm_form_button_create"));
-		create_button.click();
-		
-	}
 	
 	public void click_save_update() {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='Save']")));
@@ -139,18 +112,11 @@ public class CreateNcrPage {
 		
 	}
 	
-	public String get_error_message_PTitems() {
-		String err_PTitems = LoginPage.driver_login.findElement(By.xpath("//div[@id='entityTypeErrorDiv']")).getText();
-		return err_PTitems;
-		
-	}
 	
 	public String get_error_message_newTextArea() {
 		String err_newTextArea = LoginPage.driver_login.findElement(By.xpath("//div[@id='wwerr_ncrDetailsForm_ncr_metadata_metadata_1385']/div")).getText();
 		return err_newTextArea;
 		
 	}
-	
-	
 
 }

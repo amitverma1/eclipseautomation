@@ -24,6 +24,7 @@
   </path>
 
   <!-- Deletes the existing build directory-->
+	
   <target name="clean">
     <delete dir="build" />
   </target>
@@ -32,6 +33,11 @@
   <target name="makedir" depends="clean">
     <mkdir dir="build" />
   </target>
+	
+	<delete dir="${basedir}/screenshot">
+	                </delete>
+	                <mkdir dir="${basedir}/screenshot">
+	                </mkdir>
 
   <!-- Compiles the java code -->
   <target name="compile" depends="makedir">
@@ -101,9 +107,12 @@
         </delete>
         <mkdir dir="${basedir}/zipReport">
         </mkdir>
+    	
     <zip destfile="${basedir}/zipReport/report.zip"
-       basedir="${basedir}/testng-xslt"
-  />
+       basedir="${basedir}/testng-xslt"/>
+    <zip destfile="${basedir}/zipReport/screenshots.zip"
+           basedir="${basedir}/screenshot"/>
+  
     
     <mail enableStartTLS="true" ssl="true" mailhost="smtp.gmail.com" mailport="465" user="saurabhjain.test@gmail.com" password="saurabhjain123" subject="Testng Report">
         <from address="saurabhjain.test@gmail.com"/>
@@ -112,6 +121,7 @@
         <attachments>
     <fileset dir="${basedir}/zipReport">
       <include name="report.zip"/>
+      <include name="screenshots.zip"/>
     </fileset>
   </attachments>
     </mail>
