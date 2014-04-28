@@ -10,6 +10,7 @@
         <class name="testCases.LogoutTC" />
         <class name="testCases.Change_Password_TC" />
         <class name="testCases.CreateNCR_TC" />
+        <class name="testCases.EditNcr_TC" />
         <class name="testCases.CreateNrb_TC" />
     </classes>
 </test>
