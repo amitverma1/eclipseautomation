@@ -36,7 +36,7 @@ public class LoginTC {
 	
 	@BeforeClass
 	@Parameters({"browser"})
-	public void beforeClass(@Optional("ie") String browser) throws IOException{
+	public void beforeClass(@Optional("firefox") String browser) throws IOException{
 		//LoginPage.driver_login = new FirefoxDriver();
 		
 		
